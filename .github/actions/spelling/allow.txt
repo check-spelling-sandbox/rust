@@ -1,0 +1,8 @@
+armeb
+github
+https
+risc
+sparc
+ssh
+ubuntu
+workarounds
