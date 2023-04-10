@@ -2942,7 +2942,7 @@ impl IntoDiagnosticArg for ObligationCauseAsDiagArg<'_> {
             IfExpressionWithNoElse => "no_else",
             MainFunctionType => "fn_main_correct_type",
             StartFunctionType => "fn_start_correct_type",
-            IntrinsicType => "intristic_correct_type",
+            IntrinsicType => "intrinsic_correct_type",
             MethodReceiver => "method_correct_type",
             _ => "other",
         }

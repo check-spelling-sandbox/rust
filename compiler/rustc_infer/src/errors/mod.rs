@@ -1488,7 +1488,7 @@ pub enum ObligationCauseFailureCode {
         #[subdiagnostic]
         subdiags: Vec<TypeErrorAdditionalDiags>,
     },
-    #[diag(infer_oc_intristic_correct_type, code = "E0308")]
+    #[diag(infer_oc_intrinsic_correct_type, code = "E0308")]
     IntristicCorrectType {
         #[primary_span]
         span: Span,
