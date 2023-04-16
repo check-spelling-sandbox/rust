@@ -48,7 +48,7 @@
 //
 // 2. every node provides a method to visit its children
 //
-// 3. a traversal attmepts to visit the nodes of the graph and prove that
+// 3. a traversal attempts to visit the nodes of the graph and prove that
 //    it sees the same node twice. It does this by setting the mark of each
 //    node to a fresh non-zero value, and if it sees the current mark, it
 //    "knows" that it must have found a cycle, and stops attempting further
@@ -415,7 +415,7 @@ pub fn main() {
 
     if PRINT { println!(); }
 
-    // Cycle 14: { arc0 -> (arc1, arc2), arc1 -> (), arc2 -> arc0 }, mutexs
+    // Cycle 14: { arc0 -> (arc1, arc2), arc1 -> (), arc2 -> arc0 }, mutexes
     let (arc0, arc1, arc2): (ARCM, ARCM, ARCM);
     arc0 = ARCM::new("arcm0");
     arc1 = ARCM::new("arcm1");

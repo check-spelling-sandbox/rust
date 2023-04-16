@@ -1079,7 +1079,7 @@ impl<'a: 'ast, 'ast, 'tcx> Visitor<'ast> for LateResolutionVisitor<'a, '_, 'ast,
                     for rib in self.lifetime_ribs.iter().rev() {
                         match rib.kind {
                             // We are inside a `PolyTraitRef`. The lifetimes are
-                            // to be intoduced in that (maybe implicit) `for<>` binder.
+                            // to be introduced in that (maybe implicit) `for<>` binder.
                             LifetimeRibKind::Generics {
                                 binder,
                                 kind: LifetimeBinderKind::PolyTrait,
@@ -2565,7 +2565,7 @@ impl<'a: 'ast, 'b, 'ast, 'tcx> LateResolutionVisitor<'a, 'b, 'ast, 'tcx> {
         self.with_rib(ValueNS, kind, |this| this.with_rib(TypeNS, kind, f))
     }
 
-    // HACK(min_const_generics,const_evaluatable_unchecked): We
+    // HACK(min_const_generics,const_evaluable_unchecked): We
     // want to keep allowing `[0; std::mem::size_of::<*mut T>()]`
     // with a future compat lint for now. We do this by adding an
     // additional special case for repeat expressions.
@@ -2636,7 +2636,7 @@ impl<'a: 'ast, 'b, 'ast, 'tcx> LateResolutionVisitor<'a, 'b, 'ast, 'tcx> {
                     // actual constant expression in a provided default.
                     if let Some(expr) = expr {
                         // We allow arbitrary const expressions inside of associated consts,
-                        // even if they are potentially not const evaluatable.
+                        // even if they are potentially not const evaluable.
                         //
                         // Type parameters can already be used and as associated consts are
                         // not used as part of the type system, this is far less surprising.
@@ -2823,7 +2823,7 @@ impl<'a: 'ast, 'b, 'ast, 'tcx> LateResolutionVisitor<'a, 'b, 'ast, 'tcx> {
                 self.visit_ty(ty);
                 if let Some(expr) = expr {
                     // We allow arbitrary const expressions inside of associated consts,
-                    // even if they are potentially not const evaluatable.
+                    // even if they are potentially not const evaluable.
                     //
                     // Type parameters can already be used and as associated consts are
                     // not used as part of the type system, this is far less surprising.
@@ -3803,7 +3803,7 @@ impl<'a: 'ast, 'b, 'ast, 'tcx> LateResolutionVisitor<'a, 'b, 'ast, 'tcx> {
             // use std::u8; // bring module u8 in scope
             // fn f() -> u8 { // OK, resolves to primitive u8, not to std::u8
             //     u8::max_value() // OK, resolves to associated function <u8>::max_value,
-            //                     // not to non-existent std::u8::max_value
+            //                     // not to nonexistent std::u8::max_value
             // }
             //
             // Such behavior is required for backward compatibility.

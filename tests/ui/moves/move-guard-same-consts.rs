@@ -1,9 +1,9 @@
-// #47295: We used to have a hack of special-casing adjacent amtch
+// #47295: We used to have a hack of special-casing adjacent match
 // arms whose patterns were composed solely of constants to not have
 // them linked in the cfg.
 //
 // This was broken for various reasons. In particular, that hack was
-// originally authored under the assunption that other checks
+// originally authored under the assumption that other checks
 // elsewhere would ensure that the two patterns did not overlap.  But
 // that assumption did not hold, at least not in the long run (namely,
 // overlapping patterns were turned into warnings rather than errors).
